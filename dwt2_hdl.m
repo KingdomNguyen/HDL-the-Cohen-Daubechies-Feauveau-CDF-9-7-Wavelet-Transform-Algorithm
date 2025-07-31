@@ -2,7 +2,7 @@ function [cA, cH, cV, cD] = dwt2_hdl(img)
 %#codegen
 % HDL-compatible 2D DWT using only CDF 9/7 wavelet with streaming interface
 
-% Define filter coefficients as constants (not persistent)
+% Define filter coefficients as constants 
 lpf = [0.026748757411, -0.016864118443, -0.078223266529, ...
        0.266864118443, 0.602949018236, 0.266864118443, ...
       -0.078223266529, -0.016864118443, 0.026748757411];
@@ -13,7 +13,7 @@ hpf = [0.091271763114, -0.057543526229, -0.591271763114, ...
 % Get image dimensions
 [rows, cols] = size(img);
 
-% Initialize outputs with fixed sizes (important for HDL)
+% Initialize outputs with fixed sizes 
 output_size = ceil([rows cols]/2);
 cA = zeros(output_size, 'like', img);
 cH = zeros(output_size, 'like', img);
@@ -57,7 +57,7 @@ approx_len = ceil(N/2);
 approx = zeros(1, approx_len, 'like', signal);
 detail = zeros(1, approx_len, 'like', signal);
 
-% Use circular buffer for symmetric extension (more HDL-friendly)
+% Use circular buffer for symmetric extension 
 buffer_size = length(lpf);
 circular_buffer = zeros(1, buffer_size, 'like', signal);
 
