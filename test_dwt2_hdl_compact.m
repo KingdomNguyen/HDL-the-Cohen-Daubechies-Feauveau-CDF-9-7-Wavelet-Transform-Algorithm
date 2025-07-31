@@ -1,8 +1,8 @@
 function test_dwt2_hdl_compact()
-    % So sánh kết quả DWT giữa VHDL và MATLAB (dùng dwt2_hdl)
+    % So sánh kết quả DWT giữa VHDL và MATLAB 
     close all; clc;
 
-    % Tạo ảnh 8x8 giống như testbench VHDL: img(i,j) = mod(i+j,256)*16 / 16384
+    % Tạo ảnh 8x8 
     img = zeros(8,8);
     for i = 0:7
         for j = 0:7
